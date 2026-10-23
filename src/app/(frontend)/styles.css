@@ -1,75 +1,23 @@
-:root {
-  --font-mono: 'Roboto Mono', monospace;
-}
+@import "tailwindcss";
+@plugin "daisyui";
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 18px;
-  line-height: 32px;
-
-  -webkit-font-smoothing: antialiased;
-}
-
-html,
-body,
-#app {
-  height: 100%;
+@plugin "daisyui" {
+  themes: light-theme --default;
 }
 
 body {
-  font-family: system-ui;
-  font-size: 18px;
-  line-height: 32px;
-
-  margin: 0;
-
-  @media (max-width: 1024px) {
-    font-size: 15px;
-    line-height: 24px;
-  }
+  font-family: "Nunito Sans", sans-serif;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+@plugin "daisyui/theme" {
+  name:"light-theme";
+  default: true;
+
+  --color-primary: #FFFAC8;
+  --color-neutral: #FCF9DC;
+  --color-secondary: #D1CDA4;
+  --color-accent: #000;
+  --color-accent-content: #FFFAC8;
 }
 
-h1 {
-  margin: 40px 0;
-  font-size: 64px;
-  line-height: 70px;
-  font-weight: bold;
-
-  @media (max-width: 1024px) {
-    margin: 24px 0;
-    font-size: 42px;
-    line-height: 42px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 38px;
-    line-height: 38px;
-  }
-
-  @media (max-width: 400px) {
-    font-size: 32px;
-    line-height: 32px;
-  }
-}
-
-p {
-  margin: 24px 0;
-
-  @media (max-width: 1024px) {
-    margin: calc(var(--base) * 0.75) 0;
-  }
-}
-
-svg {
-  vertical-align: middle;
-}
 

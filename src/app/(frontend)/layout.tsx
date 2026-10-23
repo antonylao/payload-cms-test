@@ -10,8 +10,11 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" data-theme="light-theme">
+      <head>
+        <link rel="icon" href="/favicon.png" />
+      </head>
+      <body >
         <main>{children}</main>
       </body>
     </html>

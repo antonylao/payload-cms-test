@@ -3,6 +3,10 @@ import Image from 'next/image'
 import { getPayload } from 'payload'
 import React from 'react'
 import { fileURLToPath } from 'url'
+import HomepageClient from './HomepageClient'
+import { IoLogoLinkedin } from "react-icons/io";
+import { CiInstagram } from "react-icons/ci";
+import { AiOutlineTikTok } from "react-icons/ai";
 
 import config from '@/payload.config'
 import './styles.css'
@@ -15,15 +19,21 @@ export default async function HomePage() {
 
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
-  const { docs: [page] } = await payload.find({
+  const result = await payload.find({
     collection: "pages",
     where: {
       slug: { equals: "homepage" }
     }
   })
+
+  const page = result.docs[0]
+
+
   return (
     <>
-      {page.title}
+      <HomepageClient pageData={page} />
     </>
   )
+
+
 }

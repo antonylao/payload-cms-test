@@ -172,6 +172,22 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
+  layout: {
+    'full-name': string;
+    'presentation-line'?: string | null;
+    'social-media-line'?: string | null;
+    'social-media'?:
+      | {
+          icon: 'github' | 'instagram' | 'linkedin' | 'x';
+          link: string;
+          id?: string | null;
+        }[]
+      | null;
+    'expertise-line'?: string | null;
+    id?: string | null;
+    blockName?: string | null;
+    blockType: 'profile';
+  }[];
   updatedAt: string;
   createdAt: string;
 }
@@ -301,6 +317,27 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  layout?:
+    | T
+    | {
+        profile?:
+          | T
+          | {
+              'full-name'?: T;
+              'presentation-line'?: T;
+              'social-media-line'?: T;
+              'social-media'?:
+                | T
+                | {
+                    icon?: T;
+                    link?: T;
+                    id?: T;
+                  };
+              'expertise-line'?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }
